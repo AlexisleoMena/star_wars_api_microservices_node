@@ -2,7 +2,7 @@
 
 ## Sin utilizar Dockerfile (No recomendado)
 
-### Crear y ejecutar un contenedor utilizando una imagen de Node.js, un volumen y comandos de shell.
+### Crear y ejecutar un contenedor utilizando una imagen de Node.js, un volumen y comandos de shell:
 ```
 docker container run ,
 --publish 8003:8003 ,
@@ -13,7 +13,7 @@ docker container run ,
 node:18.16-alpine ,
 sh -c "npm install && npm start"
 ```
-* La segunda línea, que está comentada, establece la conexión del contenedor con la red 'star-wars-net' en caso de haber sido creada previamente.
+* La tercer línea, que está comentada, establece la conexión del contenedor con la red 'star-wars-net' en caso de haber sido creada previamente.
 
 ## Utilizando Dockerfile
 
