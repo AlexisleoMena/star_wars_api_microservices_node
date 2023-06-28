@@ -10,7 +10,7 @@ docker build --tag gateway .
 docker container run --detach --publish 8000:8000 --name=gateway gateway
 ```
 
-## Crear red de conexión entre contenedores
+### Crear red de conexión entre contenedores
 ```
 docker network create star-wars-net
 ```
