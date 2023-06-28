@@ -43,4 +43,4 @@ docker container run --publish 8002:8002 --name=films films
 ### Crear y/o ejecutar un contenedor en segundo plano a partir de la imagen creada anteriormente:
 ```
 docker container run --detach --publish 8002:8002 --name=films films
-``
+```

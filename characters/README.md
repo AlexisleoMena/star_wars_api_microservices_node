@@ -43,4 +43,4 @@ docker container run --publish 8001:8001 --name=characters characters
 ### Crear y/o ejecutar un contenedor en segundo plano a partir de la imagen creada anteriormente:
 ```
 docker container run --detach --publish 8001:8001 --name=characters characters
-``
+```
