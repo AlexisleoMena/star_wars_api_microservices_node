@@ -1,8 +1,10 @@
+const axios = require("axios");
 const sendResponse = require("../utils/sendResponse");
-const Films = require("../data");
+const sendError = require("../utils/createClientError");
 
 module.exports = async (req, res) => {
-  const film = await Films.get(req.params.id);
-	if(!film) return sendResponse(res, 404, null);
-  sendResponse(res, 200, film);
+  const { data } = await axios.get("http://database:8004/Film/" + req.params.id);
+  if (data.error) return sendError(data.error);
+  if(!data.data) return sendResponse(res, 404, null);
+  sendResponse(res, 200, data.data);
 };

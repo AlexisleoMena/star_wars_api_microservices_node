@@ -1,8 +1,10 @@
+const axios = require("axios");
 const sendResponse = require("../utils/sendResponse");
-const Character = require("../data");
+const sendError = require("../utils/createClientError");
 
 module.exports = async (req, res) => {
-  const character = await Character.get(req.params.id);
-	if(!character) return sendResponse(res, 404, null);
-  sendResponse(res, 200, character);
+  const { data } = await axios.get("http://database:8004/Character/" + req.params.id);
+  if (data.error) return sendError(data.error);
+  if(!data.data) return sendResponse(res, 404, null);
+  sendResponse(res, 200, data.data);
 };

@@ -5,9 +5,9 @@
 ### Crear y ejecutar un contenedor utilizando una imagen de Node.js, un volumen y comandos de shell:
 ```
 docker container run ,
---publish 8001:8001 ,
+--publish 8002:8002 ,
 # --network star-wars-net,
---name characters ,
+--name database ,
 --workdir /app ,
 --volume ${PWD}:/app ,
 node:18.16-alpine ,
@@ -21,54 +21,52 @@ sh -c "npm install && npm start"
 ```
 docker build .
 ```
-### Crear y ejecutar un contenedor a partir de la imagen creada anteriormente:
+### Crear y/o ejecutar un contenedor a partir de la imagen creada anteriormente:
 ```
 docker images
-docker container run --publish 8001:8001 --name=characters IMAGE_ID
+docker container run --publish 8002:8002 --name=database IMAGE_ID
 ```
 * Si no se asigna una etiqueta durante la construcción de la imagen, esta quedará con un nombre poco legible, lo que requerirá utilizar el ID de la imagen (los tres primeros caracteres son suficientes) al ejecutar un contenedor a partir de ella.
-* Se publica (expone) y enlaza el puerto 8001 del contenedor con el mismo puerto en la máquina local. Esto permite acceder a los servicios o aplicaciones que se ejecutan dentro del contenedor a través del puerto 8001 en el host.
+* Se publica (expone) y enlaza el puerto 8002 del contenedor con el mismo puerto en la máquina local. Esto permite acceder a los servicios o aplicaciones que se ejecutan dentro del contenedor a través del puerto 8002 en el host.
 * El nombre del contenedor puede ser utilizado para conectarlo a una red y referirse a él como host en el entorno.
 
 ### Construir la imagen CON etiqueta:
 ```
-docker build --tag characters .
+docker build --tag database .
 ```
 ### Crear y ejecutar un contenedor a partir de la imagen creada anteriormente:
 ```
-docker container run --publish 8001:8001 --name=characters characters
+docker container run --publish 8004:8004 --name=database database
 ```
 <hr/>
 
 ### Crear y ejecutar un contenedor en segundo plano a partir de la imagen creada anteriormente:
 ```
-docker container run --detach --publish 8001:8001 --name=characters characters
+docker container run --detach --publish 8004:8004 --name=database database
 ```
-
 <hr/>
 
 ### Detener el contenedor creado anteriormente:
 ```
-docker container start characters
+docker container start database
 ```
 
 <hr/>
 
 ### Volver a ejecutar el contenedor creado anteriormente:
 ```
-docker container start characters
+docker container start database
 ```
 
 <hr/>
 
 ### Eliminar el contenedor creado anteriormente:
 ```
-docker container rm -f characters
+docker container rm -f database
 ```
-
-<hr/>
 
 ### Eliminar la imagen creado anteriormente:
 ```
-docker image rm characters
+docker image rm database
 ```
+

@@ -1,7 +1,8 @@
+const axios = require("axios");
 const sendResponse = require("../utils/sendResponse");
-const Character = require("../data");
 
 module.exports = async (req, res) => {
-  const characters = await Character.list();
-  sendResponse(res, 200, characters);
+  const { data } = await axios.get("http://database:8004/Character");
+  if (data.error) return sendResponse(respose, 404, data.error);
+  sendResponse(res, 200, data.data);
 };

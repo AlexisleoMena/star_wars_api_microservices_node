@@ -1,8 +1,10 @@
+const axios = require("axios");
 const sendResponse = require("../utils/sendResponse");
-const Planets = require("../data");
+const sendError = require("../utils/createClientError");
 
 module.exports = async (req, res) => {
-  const planet = await Planets.get(req.params.id);
-	if(!planet) return sendResponse(res, 404, null);
-  sendResponse(res, 200, planet);
+  const { data } = await axios.get("http://database:8004/Planet/" + req.params.id);
+  if (data.error) return sendError(data.error);
+  if(!data.data) return sendResponse(res, 404, null);
+  sendResponse(res, 200, data.data);
 };

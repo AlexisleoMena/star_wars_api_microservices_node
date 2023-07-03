@@ -21,7 +21,7 @@ sh -c "npm install && npm start"
 ```
 docker build .
 ```
-### Crear y/o ejecutar un contenedor a partir de la imagen creada anteriormente:
+### Crear y ejecutar un contenedor a partir de la imagen creada anteriormente:
 ```
 docker images
 docker container run --publish 8002:8002 --name=films IMAGE_ID
@@ -34,13 +34,41 @@ docker container run --publish 8002:8002 --name=films IMAGE_ID
 ```
 docker build --tag films .
 ```
-### Crear y/o ejecutar un contenedor a partir de la imagen creada anteriormente:
+### Crear y ejecutar un contenedor a partir de la imagen creada anteriormente:
 ```
 docker container run --publish 8002:8002 --name=films films
 ```
 <hr/>
 
-### Crear y/o ejecutar un contenedor en segundo plano a partir de la imagen creada anteriormente:
+### Crear y ejecutar un contenedor en segundo plano a partir de la imagen creada anteriormente:
 ```
 docker container run --detach --publish 8002:8002 --name=films films
+```
+
+<hr/>
+
+### Detener el contenedor creado anteriormente:
+```
+docker container start films
+```
+
+<hr/>
+
+### Volver a ejecutar el contenedor creado anteriormente:
+```
+docker container start films
+```
+
+<hr/>
+
+### Eliminar el contenedor creado anteriormente:
+```
+docker container rm -f films
+```
+
+<hr/>
+
+### Eliminar la imagen creado anteriormente:
+```
+docker image rm films
 ```
