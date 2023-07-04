@@ -68,7 +68,7 @@ docker container rm -f films
 
 <hr/>
 
-### Eliminar la imagen creado anteriormente:
+### Eliminar la imagen creada anteriormente:
 ```
 docker image rm films
 ```

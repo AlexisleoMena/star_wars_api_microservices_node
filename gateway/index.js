@@ -26,4 +26,8 @@ app.use("/database", createProxyMiddleware({
 	changeOrigin:true
 }));
 
-app.listen(8000)
+app.use('*', (req, res) => {
+	res.status(404).send("Endpoint not found");
+})
+
+app.listen(8000);
