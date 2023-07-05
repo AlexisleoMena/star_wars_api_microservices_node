@@ -2,6 +2,6 @@ const axios = require("axios");
 const sendResponse = require("../utils/sendResponse");
 
 module.exports = async (req, res) => {
-  const { data } = await axios.get("http://database:8004/Film/" + req.params.id);
-  sendResponse(res, 200, data.data);
+  const { data } = await axios.post("http://database:8004/Film", req.body);
+  sendResponse(res, 201, data.data);
 };
