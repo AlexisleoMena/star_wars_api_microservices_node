@@ -49,7 +49,7 @@ docker container run --detach --publish 8001:8001 --name=characters characters
 
 ### Detener el contenedor creado anteriormente:
 ```
-docker container start characters
+docker container stop characters
 ```
 
 <hr/>

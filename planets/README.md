@@ -49,7 +49,7 @@ docker container run --detach --publish 8003:8003 --name=planets planets
 
 ### Detener el contenedor creado anteriormente:
 ```
-docker container start planets
+docker container stop planets
 ```
 
 <hr/>

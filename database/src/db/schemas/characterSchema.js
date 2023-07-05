@@ -26,8 +26,21 @@ characterSchema.statics.get = async function (id) {
     .populate("films", ["_id", "title"]);
 };
 
-characterSchema.statics.insert = async function (character) {
-  return await this.create(character);
+characterSchema.statics.add = async function (character) {
+  const newCharacter = await this.create(character);
+  return await this.findById(newCharacter._id)
+    .populate("homeworld", ["_id", "name"])
+    .populate("films", ["_id", "title"]);
+};
+
+characterSchema.statics.update = async function (id, character) {
+  return await this.findByIdAndUpdate(id, character, { new: true })
+    .populate("homeworld", ["_id", "name"])
+    .populate("films", ["_id", "title"]);
+};
+
+characterSchema.statics.delete = async function (id) {
+  return await this.findByIdAndDelete(id);
 };
 
 module.exports = characterSchema;

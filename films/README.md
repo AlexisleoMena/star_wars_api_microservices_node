@@ -49,7 +49,7 @@ docker container run --detach --publish 8002:8002 --name=films films
 
 ### Detener el contenedor creado anteriormente:
 ```
-docker container start films
+docker container stop films
 ```
 
 <hr/>

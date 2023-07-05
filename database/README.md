@@ -48,7 +48,7 @@ docker container run --detach --publish 8004:8004 --name=database database
 
 ### Detener el contenedor creado anteriormente:
 ```
-docker container start database
+docker container stop database
 ```
 
 <hr/>
@@ -65,7 +65,7 @@ docker container start database
 docker container rm -f database
 ```
 
-### Eliminar la imagen creado anteriormente:
+### Eliminar la imagen creada anteriormente:
 ```
 docker image rm database
 ```

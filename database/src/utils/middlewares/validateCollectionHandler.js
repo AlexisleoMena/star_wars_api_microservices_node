@@ -3,6 +3,6 @@ module.exports = (req, res, next) => {
 	if(['Character', 'Film', 'Planet'].includes(collection)){
 		return next()
 	} else {
-		throw Error ('Invalid collection')
+		throw Error ('Invalid collection');
 	}
 }
