@@ -1,0 +1,62 @@
+version: '3'
+
+services:
+  gateway:
+    container_name: gateway
+    restart: always
+    ports:
+      - "8000:8000"
+    build: ./gateway
+    networks:
+      - star-wars-net
+
+  films:
+    container_name: films
+    restart: always
+    build: 
+      context: ./films
+      target: dev
+    volumes:
+      - ./films:/app
+      - /app/node_modules
+    networks:
+      - star-wars-net
+
+  characters:
+    container_name: characters
+    restart: always
+    build: 
+      context: ./characters
+      target: dev
+    volumes:
+      - ./characters:/app
+      - /app/node_modules
+    networks:
+      - star-wars-net
+
+  planets:
+    container_name: planets
+    restart: always
+    build: 
+      context: ./planets
+      target: dev
+    volumes:
+      - ./planets:/app
+      - /app/node_modules
+    networks:
+      - star-wars-net
+
+  database:
+    container_name: database
+    restart: always
+    build: 
+      context: ./database
+      target: dev
+    volumes:
+      - ./database:/app
+      - /app/node_modules
+    networks:
+      - star-wars-net
+
+networks:
+  star-wars-net:
