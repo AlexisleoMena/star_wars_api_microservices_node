@@ -17,7 +17,6 @@ RUN npm install --prod
 
 FROM node:18.16-alpine as prod
 WORKDIR /app
-ENV MONGO_URL=${MONGO_URL}
 COPY --from=prod-deps /app/node_modules ./node_modules
 COPY . .
 EXPOSE 8004
