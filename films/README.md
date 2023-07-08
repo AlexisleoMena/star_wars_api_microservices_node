@@ -13,7 +13,7 @@ docker container run ,
 --workdir /app ,
 --volume ${PWD}:/app ,
 node:18.16-alpine ,
-sh -c "npm install && npm start"
+sh -c "npm install && npm run start:dev"
 ```
 
 ### Utilizando Dockerfile
