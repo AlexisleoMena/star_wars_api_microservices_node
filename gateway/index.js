@@ -21,11 +21,6 @@ app.use("/planets", createProxyMiddleware({
 	changeOrigin:true
 }));
 
-app.use("/database", createProxyMiddleware({
-	target:"http://planets:8004",
-	changeOrigin:true
-}));
-
 app.use('*', (req, res) => {
 	res.status(404).send("Endpoint not found");
 })
