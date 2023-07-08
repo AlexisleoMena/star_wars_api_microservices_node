@@ -18,7 +18,6 @@ RUN npm install --prod
 FROM node:18.16-alpine as prod
 WORKDIR /app
 COPY --from=prod-deps /app/node_modules ./node_modules
-COPY src/ ./src
-COPY index.js package*.json ./
+COPY . .
 EXPOSE 8001
 CMD [ "npm", "start" ]
