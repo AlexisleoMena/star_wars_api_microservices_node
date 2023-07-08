@@ -8,7 +8,7 @@ Este servicio forma parte de la API de Star Wars y se encarga de proporcionar ac
 
 ```powershell
 docker container run ,
---publish 8001:8001 ,
+--publish 8004:8004 ,
 --name database ,
 --workdir /app ,
 --volume ${PWD}:/app ,
@@ -28,7 +28,7 @@ Ejecutar el contenedor a partir de la imagen creada anteriormente:
 
 ```powershell
 docker container run ,
---publish 8001:8001 ,
+--publish 8004:8004 ,
 --env-file .env ,
 --name database ,
 database
@@ -41,7 +41,7 @@ Ejecutar el contenedor en segundo plano:
 ```powershell
 docker container run ,
 --detach ,
---publish 8001:8001 ,
+--publish 8004:8004 ,
 --env-file .env ,
 --name database ,
 database
@@ -57,12 +57,12 @@ Construir la imagen:
 docker build --target prod --tag database .
 ```
 
-Ejecutar el contenedor en segundo plano con variables de entorno desde un archivo `.env`:
+Ejecutar el contenedor en segundo plano:
 
 ```powershell
 docker container run ,
 --detach ,
---publish 8001:8001 ,
+--publish 8004:8004 ,
 --env-file .env ,
 --name database ,
 database

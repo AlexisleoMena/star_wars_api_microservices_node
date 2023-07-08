@@ -8,7 +8,7 @@ Este servicio forma parte de la API de Star Wars y proporciona información sobr
 
 ```powershell
 docker container run ,
---publish 8001:8001 ,
+--publish 8002:8002 ,
 --name films ,
 --workdir /app ,
 --volume ${PWD}:/app ,
@@ -28,7 +28,7 @@ Ejecutar el contenedor a partir de la imagen creada anteriormente:
 
 ```powershell
 docker container run ,
---publish 8001:8001 ,
+--publish 8002:8002 ,
 --name films ,
 films
 ```
@@ -40,7 +40,7 @@ Ejecutar el contenedor en segundo plano:
 ```powershell
 docker container run ,
 --detach ,
---publish 8001:8001 ,
+--publish 8002:8002 ,
 --name films ,
 films
 ```
@@ -60,7 +60,7 @@ Ejecutar el contenedor en segundo plano:
 ```powershell
 docker container run ,
 --detach ,
---publish 8001:8001 ,
+--publish 8002:8002 ,
 --name films ,
 films
 ```
